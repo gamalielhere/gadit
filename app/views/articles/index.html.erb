@@ -1,8 +1,19 @@
-<ul>
-    <% @articles.each do |article| %>
-        <li>
-            <h2><strong> <%= link_to article.title, article_path(article) %> </strong></h2>
-        </li>
-    <% end %>
-
-</ul>
+<% @articles.each do |article| %>
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="heading<%= article.id %>">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= article.id %>" aria-expanded="false" aria-controls="collapse<%= article.id %>">
+            <%= article.title %>
+          </a>
+        </h4>
+      </div>
+      <div id="collapse<%= article.id %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= article.id %>">
+        <div class="panel-body">
+          <%= article.description %> &nbsp;
+          <%= link_to "Go to thread", article_path(article) %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

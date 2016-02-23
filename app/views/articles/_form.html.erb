@@ -1,14 +1,16 @@
 <%= form_for @article do |f| %>
   <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.label "title:" %>
+    <br>
+    <%= f.text_field :title, class: "text-box" %>
   </div>
-
+  <br>
   <div>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= f.label "Descrption:" %>
+    <br>
+    <%= f.text_area :description, class: "description" %>
   </div>
-
+  <br>
   <div>
     <%= f.submit %>
   </div>

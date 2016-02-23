@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :accounts, only: [:new, :create, :index]
   resources :articles, only: [:new, :create, :index]
   get '/articles/:id' => 'articles#show', as: :article
-  get '/articles/edit' => 'articles#edit', as: :article_edit
+  get '/articles/:id/edit' => 'articles#edit', as: :article_edit
   patch 'articles/:id' => 'articles#update'
   delete 'articles/:id' => 'articles#destroy'
   #Sessions
