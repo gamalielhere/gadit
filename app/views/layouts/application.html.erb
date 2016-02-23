@@ -5,9 +5,35 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
 <body>
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="<% root_path %>">GA-dit</a>
+    </div>
 
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="<%= "active" if params[:controller] == "accounts" && params[:action] == "index" %>"><%= link_to 'Home', root_path %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_account %>
+          <li style="padding-top: 15px; color: white;">Welcome, <%= current_account.username %></li>
+          <li><%= link_to 'Logout', session_path(' '), method: :delete %></li>
+        <% else %>
+          <li class="<%= "active" if params[:controller] == "sessions" && params[:action] == "new" %>"><%= link_to 'Login', login_path %></li>
+          <li class="<%= "active" if params[:controller] == "accounts" && params[:action] == "new" %>"><%= link_to 'Sign Up', new_account_path %></li>
+        <% end %>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 <%= yield %>
 
 </body>
