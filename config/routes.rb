@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
-  root 'accounts#index'
+  root 'articles#index'
 
 
   #New accounts
   resources :accounts, only: [:new, :create, :index]
-
+  resources :articles, only: [:new, :create, :index]
+  get '/articles/:id' => 'articles#show', as: :article
+  get '/articles/edit' => 'articles#edit', as: :article_edit
+  patch 'articles/:id' => 'articles#update'
+  delete 'articles/:id' => 'articles#destroy'
   #Sessions
   resources :sessions, only: [:new, :create, :destroy]
   get '/login' => 'sessions#new'

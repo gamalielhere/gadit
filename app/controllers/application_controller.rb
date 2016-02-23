@@ -4,7 +4,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_account
-
+  def authorize
+    redirect_to login_path, alert: 'Not authorized - you must be logged in!' if current_account.nil?
+  end
 private
   def current_account
     @current_account ||= Account.find(session[:account_id]) if session[:account_id]

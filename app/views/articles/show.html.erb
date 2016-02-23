@@ -1,0 +1,9 @@
+<h1><%= @article.title %></h1>
+<p>
+  Created: <%= @article.created_at.strftime("%m/%d/%Y") %> by <%= @article.account %>
+</p>
+
+<h2> <%= @article.description %> </h2>
+<% if current_account %>
+  <%= link_to 'DELETE POST', article_path, method: :delete, data: { confirm: "Are you sure? This action cannot be reverted." } %>
+<% end %>
