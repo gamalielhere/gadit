@@ -1,11 +1,12 @@
 class Article < ActiveRecord::Base
   belongs_to :account
   has_many :comments, :dependent => :destroy
+
   validates :title, presence: true
 
-  after_initialize :set_upvotes_to_zero
+  acts_as_votable
 
-  def set_upvotes_to_zero
-    self.upvotes ||= 0
+  def total_votes
+    self.get_upvotes.size - self.get_downvotes.size
   end
 end
