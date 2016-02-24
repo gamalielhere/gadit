@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   #Sessions
   resources :sessions, only: [:new, :create, :destroy]
   get '/login' => 'sessions#new'
+
+  resources :comments
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

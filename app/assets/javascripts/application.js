@@ -16,3 +16,10 @@
 //= require bootstrap-sprockets
 //= require bootstrap
 //= require_tree .
+
+$(function() {
+  $(".stop-propagate").on("click", function(evt) {
+    evt.stopPropagation();
+    console.log("HALT!");
+  });
+});

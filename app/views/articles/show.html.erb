@@ -9,3 +9,12 @@
   <br>
   <%= link_to 'DELETE POST', article_path, method: :delete, data: { confirm: "Are you sure? This action cannot be reverted." } %>
 <% end %>
+
+<ul class="list-group">
+  <% @comments.each do |f| %>
+    <li style="list-style: none;" class="list-group-item">
+      <p><%= f.account.username %></p>
+      <h3><%= f.content %></h3>
+    </li>
+  <% end %>
+</ul>

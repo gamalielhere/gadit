@@ -5,18 +5,18 @@
         <h4 class="panel-title index-page" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= article.id %>" aria-expanded="false" aria-controls="collapse<%= article.id %>">
           <ul>
             <li class="arrows">
-              <button type="button" class="btn btn-default" aria-label="Left Align">
+              <button type="button" class="btn btn-default stop-propagate" aria-label="Left Align">
                 <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
               </button>
             </li>
             <li class="upvote-button upvote-counter arrows">
-              <p>60</p>
+              <p><%= article.upvotes %></p>
             </li>
             <li class="upvote-button arrows">
                 <%= article.title %> by <%= article.account.username %>
             </li>
             <li class="arrows">
-              <button type="button" class="btn btn-default">
+              <button type="button" class="btn btn-default stop-propagate">
                 <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
               </button>
             </li>
