@@ -9,6 +9,7 @@ class AccountsController < ApplicationController
   def create
     @account = Account.new(acc_params)
     if @account.save
+      session[:account_id] = @account.id
       flash[:notice] = "You have successfully signed up!"
       redirect_to root_path
     else
