@@ -63,7 +63,7 @@
     </li>
     <% if current_account == f.account %>
        <%= link_to "EDIT", edit_article_comment_path(@article, f) %>
-      | <%= link_to "DELETE", [f.article, f], method: :delete %>
+      | <%= link_to "DELETE", [f.article, f], method: :delete, data: {confirm: "You won't be able to retrieve this comment. Are you sure you want to delete?"} %>
     <% end %>
     <h3><%= f.content %></h3>
   <% end %>
