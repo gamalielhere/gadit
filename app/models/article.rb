@@ -6,7 +6,7 @@ class Article < ActiveRecord::Base
 
   acts_as_votable
 
-  def total_votes
+  def total_votes_article
     self.get_upvotes.size - self.get_downvotes.size
   end
 end

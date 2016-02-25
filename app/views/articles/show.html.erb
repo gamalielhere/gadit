@@ -7,7 +7,7 @@
         <% end %>
       </li>
       <li class="upvote-button upvote-counter2 arrows">
-        <p><%= @article.total_votes %></p>
+        <p><%= @article.total_votes_article %></p>
       </li>
       <li class="upvote-button arrows">
         <h1><%= @article.title %></h1>
@@ -18,7 +18,7 @@
         <% end %>
       </li>
       <p>
-        Created: <%= @article.created_at.strftime("%m/%d/%Y") %> by <%= @article.account.username %>
+        Created: <%= time_ago_in_words(@article.created_at) %> by <%= @article.account.username %>
       </p>
       <h3> <%= @article.description %> </h3>
       <% if current_account == @article.account %>
@@ -44,8 +44,27 @@
 <ul class="list-group">
   <% @comments.each do |f| %>
     <li class="list-group-item">
-      <p><%= f.account.username %></p>
-      <h3><%= f.content %></h3>
+    <li class="arrows">
+      <%= link_to article_path(@article,vote: 'up'), method: :patch, class: "btn btn-default", aria_label: "Left Align" do %>
+          <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+      <% end %>
     </li>
+    <li class="upvote-button upvote-counter2 arrows">
+      <p><%= f.total_votes_comment %></p>
+    </li>
+    <li class="upvote-button arrows">
+      <p><%= f.account.username %> <%= time_ago_in_words(f.created_at) %></p>
+    </li>
+    <li class="arrows">
+      <%= link_to article_path(vote: "down"), method: :patch, class: "btn btn-default" do %>
+        <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+      <% end %>
+    </li>
+    </li>
+    <% if current_account == f.account %>
+       <%= link_to "EDIT", edit_article_comment_path(@article, f) %>
+      | <%= link_to "DELETE", [f.article, f], method: :delete %>
+    <% end %>
+    <h3><%= f.content %></h3>
   <% end %>
 </ul>
