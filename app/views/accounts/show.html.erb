@@ -6,9 +6,9 @@
   <div class="panel-body">
     <% @articles.each do |article| %>
       <p><%= article.title %> <%= time_ago_in_words(article.created_at) %> by <%= article.account.username %></p>
-        <% article.comments.each do |f| %>
-          <p><%= f.content %> by <%= f.account.username %></p>
-        <% end %>
+    <% end %>
+    <% @comments.each do |f| %>
+      <p><%= f.content %> by <%= f.account.username %></p>
     <% end %>
   </div>
 </div>

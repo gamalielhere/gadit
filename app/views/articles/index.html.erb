@@ -15,7 +15,7 @@
               </li>
               <li class="upvote-button arrows">
                   <%#= "(Voted!)" if current_account.present? && current_account.voted_for?(article) %>
-                  <%= article.title %> by <%= article.account.username %>
+                  <%= article.title %>
               </li>
               <li class="arrows">
                 <%= link_to article_vote_path(article, vote: "down"), method: :patch, class: "btn btn-default" do %>
@@ -28,6 +28,8 @@
         </div>
         <div id="collapse<%= article.id %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= article.id %>">
           <div class="panel-body">
+            by <%= link_to article.account.username, account_path(article.account.id) %>
+            <br>
             <%= article.description %> &nbsp;
             <%= link_to "Go to thread", article_path(article) %>
           </div>

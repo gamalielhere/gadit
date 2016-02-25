@@ -44,28 +44,32 @@
 <ul class="list-group">
   <% @comments.each do |f| %>
     <li class="list-group-item">
-    <li class="arrows">
-      <%= link_to article_path(@article,vote: 'up'), method: :patch, class: "btn btn-default", aria_label: "Left Align" do %>
-          <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
-      <% end %>
+      <li class="arrows">
+        <%= link_to article_path(@article,vote: 'up'), method: :patch, class: "btn btn-default", aria_label: "Left Align" do %>
+            <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+        <% end %>
+        <% if current_account == f.account %>
+          <%= link_to "DELETE", comment_path(f), method: :delete, data: {confirm: "You won't be able to retrieve this comment. Are you sure you want to delete?"} %>
+        <% end %>
+      </li>
+      <li class="upvote-button upvote-counter2 arrows">
+        <p><%= f.total_votes_comment %></p>
+      </li>
+      <li class="upvote-button arrows">
+        <p><%= link_to f.account.username, account_path(f.account.id) %> <%= time_ago_in_words(f.created_at) %></p>
+      </li>
+      <li class="arrows">
+        <%= link_to article_path(vote: "down"), method: :patch, class: "btn btn-default" do %>
+          <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+        <% end %>
+
+        <% if current_account == f.account %>
+          <h4 style="display: inline-block;"><%= best_in_place f, :content, :as => :input %></h4>
+        <% else %>
+          <h4 style="display: inline-block;"><%= f.content %></h4>
+        <% end %>
+      </li>
     </li>
-    <li class="upvote-button upvote-counter2 arrows">
-      <p><%= f.total_votes_comment %></p>
-    </li>
-    <li class="upvote-button arrows">
-      <p><%= f.account.username %> <%= time_ago_in_words(f.created_at) %></p>
-    </li>
-    <li class="arrows">
-      <%= link_to article_path(vote: "down"), method: :patch, class: "btn btn-default" do %>
-        <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
-      <% end %>
-    </li>
-    </li>
-    <% if current_account == f.account %>
-       <%= link_to "EDIT", comment_path(f) %>
-      | <%= link_to "DELETE", comment_path(f), method: :delete, data: {confirm: "You won't be able to retrieve this comment. Are you sure you want to delete?"} %>
-    <% end %>
-    <h3><%= best_in_place f, :content, :as => :input %></h3>
     <p><%= link_to 'reply', new_article_comment_path(f.id) %></p>
   <% end %>
 </ul>
