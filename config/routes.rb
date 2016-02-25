@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   #New accounts
   resources :accounts, only: [:new, :create, :index]
-  resources :articles, only: [:new, :create, :index]
+  resources :articles, only: [:new, :create, :index] do
+    resources :comments
+  end
   get '/articles/:id' => 'articles#show', as: :article
   get '/articles/:id/edit' => 'articles#edit', as: :article_edit
   patch 'articles/:id' => 'articles#update'
@@ -13,7 +15,6 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   get '/login' => 'sessions#new'
 
-  resources :comments
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

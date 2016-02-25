@@ -6,4 +6,6 @@ class Account < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true
   validates :password, length: { minimum: 5 }
+
+  acts_as_voter
 end

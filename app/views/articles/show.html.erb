@@ -1,18 +1,49 @@
-<h1><%= @article.title %></h1>
-<p>
-  Created: <%= @article.created_at.strftime("%m/%d/%Y") %> by <%= @article.account.username %>
-</p>
+<ul class="list-group">
+  <li class="list-group-item">
+    <ul>
+      <li class="arrows">
+        <%= link_to article_path(vote: "up"), method: :patch, class: "btn btn-default", aria_label: "Left Align" do %>
+            <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+        <% end %>
+      </li>
+      <li class="upvote-button upvote-counter2 arrows">
+        <p><%= @article.total_votes %></p>
+      </li>
+      <li class="upvote-button arrows">
+        <h1><%= @article.title %></h1>
+      </li>
+      <li class="arrows">
+        <%= link_to article_path(vote: "down"), method: :patch, class: "btn btn-default" do %>
+          <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+        <% end %>
+      </li>
+      <p>
+        Created: <%= @article.created_at.strftime("%m/%d/%Y") %> by <%= @article.account.username %>
+      </p>
+      <h3> <%= @article.description %> </h3>
+      <% if current_account == @article.account %>
+        <%= link_to 'EDIT POST', article_edit_path %>
+        <br>
+        <%= link_to 'DELETE POST', article_path, method: :delete, data: { confirm: "Are you sure? This action cannot be reverted." } %>
+      <% end %>
+    </ul>
+  </li>
+</ul>
 
-<h3> <%= @article.description %> </h3>
-<% if current_account == @article.account %>
-  <%= link_to 'EDIT POST', article_edit_path %>
-  <br>
-  <%= link_to 'DELETE POST', article_path, method: :delete, data: { confirm: "Are you sure? This action cannot be reverted." } %>
+<h2>Add a comment:</h2>
+<%= form_for([@article, @article.comments.build]) do |f| %>
+  <p>
+    <%= f.text_area :content, class: 'comments' %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
 <% end %>
 
+<h3>Comments: </h3>
 <ul class="list-group">
   <% @comments.each do |f| %>
-    <li style="list-style: none;" class="list-group-item">
+    <li class="list-group-item">
       <p><%= f.account.username %></p>
       <h3><%= f.content %></h3>
     </li>

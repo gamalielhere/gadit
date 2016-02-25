@@ -5,20 +5,21 @@
         <h4 class="panel-title index-page" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= article.id %>" aria-expanded="false" aria-controls="collapse<%= article.id %>">
           <ul>
             <li class="arrows">
-              <button type="button" class="btn btn-default stop-propagate" aria-label="Left Align">
-                <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
-              </button>
+              <%= link_to article_path(article, vote: "up"), method: :patch, class: "btn btn-default", aria_label: "Left Align" do %>
+                  <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+              <% end %>
             </li>
             <li class="upvote-button upvote-counter arrows">
               <p><%= article.total_votes %></p>
             </li>
             <li class="upvote-button arrows">
+                <%#= "(Voted!)" if current_account.present? && current_account.voted_for?(article) %>
                 <%= article.title %> by <%= article.account.username %>
             </li>
             <li class="arrows">
-              <button type="button" class="btn btn-default stop-propagate">
+              <%= link_to article_path(article, vote: "down"), method: :patch, class: "btn btn-default" do %>
                 <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
-              </button>
+              <% end %>
             </li>
           </ul>
           &nbsp;&nbsp;

@@ -1,7 +1,8 @@
 class ArticlesController < ApplicationController
   before_action :authorize, except: [:index, :show]
+
   def index
-    @articles = Article.all
+    @articles = Article.all.order('created_at DESC')
   end
 
   def show
@@ -30,7 +31,13 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
 
-    if @article.update_attributes(article_params)
+    if params[:vote] == "up"
+      @article.upvote_from current_account
+      redirect_to articles_path
+    elsif params[:vote] == "down"
+      @article.downvote_from current_account
+      redirect_to articles_path
+    elsif @article.update_attributes(article_params)
       redirect_to articles_path
     else
       render :edit
