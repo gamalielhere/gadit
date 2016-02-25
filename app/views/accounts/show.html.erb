@@ -1,0 +1,15 @@
+<div class="center-content">
+  <img src="../../../aa.png" alt="LOGO" style="height:200px;">
+  <h1><%= @account.username %></h1>
+  <div class="panel panel-default">
+  <div class="panel-heading">Activities: </div>
+  <div class="panel-body">
+    <% @articles.each do |article| %>
+      <p><%= article.title %> <%= time_ago_in_words(article.created_at) %> by <%= article.account.username %></p>
+        <% article.comments.each do |f| %>
+          <p><%= f.content %> by <%= f.account.username %></p>
+        <% end %>
+    <% end %>
+  </div>
+</div>
+</div>

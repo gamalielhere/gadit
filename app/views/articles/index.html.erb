@@ -1,36 +1,38 @@
-<% @articles.each do |article| %>
-  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-    <div class="panel panel-default">
-      <div class="panel-heading" role="tab" id="heading<%= article.id %>">
-        <h4 class="panel-title index-page" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= article.id %>" aria-expanded="false" aria-controls="collapse<%= article.id %>">
-          <ul>
-            <li class="arrows">
-              <%= link_to article_path(article, vote: "up"), method: :patch, class: "btn btn-default", aria_label: "Left Align" do %>
-                  <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
-              <% end %>
-            </li>
-            <li class="upvote-button upvote-counter arrows">
-              <p><%= article.total_votes_article %></p>
-            </li>
-            <li class="upvote-button arrows">
-                <%#= "(Voted!)" if current_account.present? && current_account.voted_for?(article) %>
-                <%= article.title %> by <%= article.account.username %>
-            </li>
-            <li class="arrows">
-              <%= link_to article_path(article, vote: "down"), method: :patch, class: "btn btn-default" do %>
-                <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
-              <% end %>
-            </li>
-          </ul>
-          &nbsp;&nbsp;
-        </h4>
-      </div>
-      <div id="collapse<%= article.id %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= article.id %>">
-        <div class="panel-body">
-          <%= article.description %> &nbsp;
-          <%= link_to "Go to thread", article_path(article) %>
+<div style="background-image: url('https://newevolutiondesigns.com/images/freebies/black-white-background-8.jpg'); height: 710px;">
+  <% @articles.each do |article| %>
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="heading<%= article.id %>">
+          <h4 class="panel-title index-page" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= article.id %>" aria-expanded="false" aria-controls="collapse<%= article.id %>">
+            <ul>
+              <li class="arrows">
+                <%= link_to article_vote_path(article, vote: "up"), method: :patch, class: "btn btn-default", aria_label: "Left Align" do %>
+                    <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+                <% end %>
+              </li>
+              <li class="upvote-button upvote-counter arrows">
+                <p><%= article.total_votes_article %></p>
+              </li>
+              <li class="upvote-button arrows">
+                  <%#= "(Voted!)" if current_account.present? && current_account.voted_for?(article) %>
+                  <%= article.title %> by <%= article.account.username %>
+              </li>
+              <li class="arrows">
+                <%= link_to article_vote_path(article, vote: "down"), method: :patch, class: "btn btn-default" do %>
+                  <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+                <% end %>
+              </li>
+            </ul>
+            &nbsp;&nbsp;
+          </h4>
+        </div>
+        <div id="collapse<%= article.id %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= article.id %>">
+          <div class="panel-body">
+            <%= article.description %> &nbsp;
+            <%= link_to "Go to thread", article_path(article) %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

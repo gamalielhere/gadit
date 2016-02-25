@@ -3,6 +3,7 @@
 <head>
   <title>Gadit</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Finger+Paint' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -18,12 +19,15 @@
          <span class="icon-bar"></span>
          <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="<% root_path %>">GA-dit</a>
+      <a class="navbar-brand" href="<% root_path %>"><a href="<% root_path %>"><img src="../../../aa.png" alt="LOGO" style="height:50px;"></a></a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navigationbar">
       <ul class="nav navbar-nav">
         <li class="<%= "active" if params[:controller] == "articles" && params[:action] == "index" %>"><%= link_to 'Home', root_path %></li>
+        <% if current_account %>
+        <li class="<%= "active" if params[:controller] == "accounts" && params[:action] == "show" %>"><%= link_to 'Profile', account_path(current_account) %></li>
+        <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if current_account %>

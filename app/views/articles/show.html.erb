@@ -62,9 +62,10 @@
     </li>
     </li>
     <% if current_account == f.account %>
-       <%= link_to "EDIT", edit_article_comment_path(@article, f) %>
-      | <%= link_to "DELETE", [f.article, f], method: :delete, data: {confirm: "You won't be able to retrieve this comment. Are you sure you want to delete?"} %>
+       <%= link_to "EDIT", comment_path(f) %>
+      | <%= link_to "DELETE", comment_path(f), method: :delete, data: {confirm: "You won't be able to retrieve this comment. Are you sure you want to delete?"} %>
     <% end %>
-    <h3><%= f.content %></h3>
+    <h3><%= best_in_place f, :content, :as => :input %></h3>
+    <p><%= link_to 'reply', new_article_comment_path(f.id) %></p>
   <% end %>
 </ul>

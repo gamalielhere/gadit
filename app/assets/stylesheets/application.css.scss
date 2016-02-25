@@ -17,6 +17,9 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+body {
+  font-family: 'Finger paint'
+}
 
 .description {
   height: 450px;
@@ -29,7 +32,11 @@
 
 .center-content {
   text-align: center;
+  background-image: url('../../../bg1.jpg');
+  height: 720px;
+  max-height: 100%;
 }
+
 
 .index-page {
   height: 100px;

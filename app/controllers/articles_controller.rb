@@ -33,6 +33,22 @@ class ArticlesController < ApplicationController
 
     if params[:vote] == "up"
       @article.upvote_from current_account
+      redirect_to article_path(@article)
+    elsif params[:vote] == "down"
+      @article.downvote_from current_account
+      redirect_to article_path(@article)
+    elsif @article.update_attributes(article_params)
+      redirect_to article_path(@article)
+    else
+      render :edit
+    end
+  end
+
+  def vote
+    @article = Article.find(params[:id])
+
+    if params[:vote] == "up"
+      @article.upvote_from current_account
       redirect_to articles_path
     elsif params[:vote] == "down"
       @article.downvote_from current_account

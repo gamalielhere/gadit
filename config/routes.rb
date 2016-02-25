@@ -3,13 +3,15 @@ Rails.application.routes.draw do
 
 
   #New accounts
-  resources :accounts, only: [:new, :create, :index]
+  resources :accounts, only: [:new, :create, :index, :show]
   resources :articles, only: [:new, :create, :index] do
-    resources :comments
+    resources :comments, shallow: true
+    get '/comments/new/(:parent_id)', to: 'comments#new', as: :new_comment
   end
   get '/articles/:id' => 'articles#show', as: :article
   get '/articles/:id/edit' => 'articles#edit', as: :article_edit
   patch 'articles/:id' => 'articles#update'
+  patch 'articles/:id/vote' => 'articles#vote', as: 'article_vote'
   delete 'articles/:id' => 'articles#destroy'
   #Sessions
   resources :sessions, only: [:new, :create, :destroy]

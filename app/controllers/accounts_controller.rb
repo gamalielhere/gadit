@@ -2,6 +2,12 @@ class AccountsController < ApplicationController
   def index
   end
 
+  def show
+    @account = Account.find(params[:id])
+    @comments = Comment.where(account_id: @account.id)
+    @articles = Article.where(account_id: @account.id)
+  end
+
   def new
     @account = Account.new
   end
