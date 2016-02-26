@@ -7,7 +7,8 @@
 App that resembles [Reddit](http://www.reddit.com), an entertainment, social news networking service, and news website where registered community members can submit content, such as text posts or direct links, making it essentially an online bulletin board system. Registered users can then vote submissions up or down to organize the posts and determine their position on the site's pages. Content entries are organized by areas of interest called "subreddits".
 &nbsp;  
 &nbsp;  
-
+##Design Aprroach
+My design approach is to make a reddit look alike app but more user friendly looking.
 ###Technology
 * Ruby on Rails
 * closure_tree and acts_as_votable gem
@@ -43,7 +44,7 @@ App that resembles [Reddit](http://www.reddit.com), an entertainment, social new
 &nbsp;  
 ##LOGIN and SIGN UP PAGE
 **Expectation**  
-![page](http://i.imgur.com/X3EnJJu.jpg)![page](http://i.imgur.com/BbxDcTH.jpg)  
+![page](http://i.imgur.com/X3EnJJu.jpg?1)![page](http://i.imgur.com/BbxDcTH.jpg?1)  
 **Reality**  
 ![page](https://i.imgur.com/Whu2S7M.png)![page](https://i.imgur.com/stimdwH.png)  
 &nbsp;  

@@ -18,7 +18,7 @@
         <% end %>
       </li>
       <p>
-        Created: <%= time_ago_in_words(@article.created_at) %> by <%= @article.account.username %>
+        Created: <%= time_ago_in_words(@article.created_at) %> by <%= link_to @article.account.username, @article.account %>
       </p>
       <h3> <%= @article.description %> </h3>
       <% if current_account == @article.account %>
