@@ -62,7 +62,12 @@
         <%= link_to article_comment_vote_path(@article, f, vote: "down"), method: :patch, class: "btn btn-default" do %>
           <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
         <% end %>
+
+        <% if current_account == f.account %>
+          <h4 style="display: inline-block;"><%= best_in_place f, :content, :as => :input %></h4>
+        <% else %>
           <h4 style="display: inline-block;"><%= f.content %></h4>
+        <% end %>
       </li>
     </li>
   <% end %>

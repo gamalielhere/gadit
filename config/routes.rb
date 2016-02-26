@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   resources :accounts, only: [:new, :create, :index, :show, :destroy]
   resources :articles, only: [:new, :create, :index] do
     resources :comments, shallow: true
-    get '/comments/new/(:parent_id)', to: 'comments#new', as: :new_comment
     patch '/comments/:id/comments_vote' => 'comments#vote', as: :comment_vote
 
   end

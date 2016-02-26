@@ -11,7 +11,7 @@ App that resembles [Reddit](http://www.reddit.com), an entertainment, social new
 My design approach is to make a reddit look alike app but more user friendly looking.
 ###Technology
 * Ruby on Rails
-* closure_tree and acts_as_votable gem
+* acts_as_votable gem
 * HTML/CSS
 * Bootstrap or Materialize CSS framework
 * Javascript or jQuery
