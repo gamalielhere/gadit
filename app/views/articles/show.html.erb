@@ -2,8 +2,14 @@
   <li class="list-group-item">
     <ul>
       <li class="arrows">
-        <%= link_to article_path(vote: "up"), method: :patch, class: "btn btn-default", aria_label: "Left Align" do %>
-            <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+        <% if current_account.voted_up_on? @article %>
+          <%= link_to article_path(vote: "up"), method: :patch, class: "btn btn-warning", aria_label: "Left Align" do %>
+            <span class="glyphicon glyphicon-arrow-up " aria-hidden="true"></span>
+          <% end %>
+        <% else %>
+          <%= link_to article_path(vote: "up"), method: :patch, class: "btn btn-default", aria_label: "Left Align" do %>
+              <span class="glyphicon glyphicon-arrow-up " aria-hidden="true"></span>
+          <% end %>
         <% end %>
       </li>
       <li class="upvote-button upvote-counter2 arrows">
@@ -13,8 +19,14 @@
         <h1><%= @article.title %></h1>
       </li>
       <li class="arrows">
-        <%= link_to article_path(vote: "down"), method: :patch, class: "btn btn-default" do %>
-          <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+        <% if current_account.voted_down_on? @article %>
+          <%= link_to article_path(vote: "down"), method: :patch, class: "btn btn-warning", aria_label: "Left Align" do %>
+            <span class="glyphicon glyphicon-arrow-down " aria-hidden="true"></span>
+          <% end %>
+        <% else %>
+          <%= link_to article_path(vote: "down"), method: :patch, class: "btn btn-default", aria_label: "Left Align" do %>
+              <span class="glyphicon glyphicon-arrow-down " aria-hidden="true"></span>
+          <% end %>
         <% end %>
       </li>
       <p>

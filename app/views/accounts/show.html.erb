@@ -5,7 +5,7 @@
   <div class="panel-heading">Activities: </div>
   <div class="panel-body">
     <% @articles.each do |article| %>
-      <p><%= article.title %> <%= time_ago_in_words(article.created_at) %> by <%= article.account.username %></p>
+      <p><%= article.title %> by <%= article.account.username %> about <%= time_ago_in_words(article.created_at) %> ago</p>
     <% end %>
     <% @comments.each do |f| %>
       <p><%= f.content %> by <%= f.account.username %></p>
