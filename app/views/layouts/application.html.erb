@@ -32,7 +32,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if current_account %>
           <li><%= link_to 'Create a new post', new_article_path %></li>
-          <li style="padding-top: 15px; color: white;">Welcome, <%= current_account.username %></li>
+          <li style="padding-top: 15px; color: white;"><p>Welcome, <%= link_to current_account.username, account_path(current_account) %></p></li>
           <li><%= link_to 'Logout', session_path(' '), method: :delete %></li>
         <% else %>
           <li class="<%= "active" if params[:controller] == "sessions" && params[:action] == "new" %>"><%= link_to 'Login', login_path %></li>

@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :authorize
 
   def index
-    @comments = @comment = @article.comments.find(params[:id])
+    @comments = @comment = Comment.find(params[:id])
   end
 
   def new
@@ -24,6 +24,24 @@ class CommentsController < ApplicationController
       end
     end
   end
+
+  def vote
+    @article = Article.find(params[:article_id])
+    @comment = Comment.find(params[:id])
+
+    if params[:vote] == "up"
+      @comment.upvote_from current_account
+      redirect_to article_path(@article)
+    elsif params[:vote] == "down"
+      @comment.downvote_from current_account
+      redirect_to article_path(@article)
+    elsif @comment.update_attributes(comment_params)
+      redirect_to article_path(@article)
+    else
+      render :edit
+    end
+  end
+
 
   def create
     @article = Article.find(params[:article_id])

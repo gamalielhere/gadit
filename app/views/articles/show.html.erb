@@ -45,7 +45,7 @@
   <% @comments.each do |f| %>
     <li class="list-group-item">
       <li class="arrows">
-        <%= link_to article_path(@article,vote: 'up'), method: :patch, class: "btn btn-default", aria_label: "Left Align" do %>
+        <%= link_to article_comment_vote_path(@article, f, vote: 'up'), method: :patch, class: "btn btn-default", aria_label: "Left Align" do %>
             <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
         <% end %>
         <% if current_account == f.account %>
@@ -59,7 +59,7 @@
         <p><%= link_to f.account.username, account_path(f.account.id) %> <%= time_ago_in_words(f.created_at) %></p>
       </li>
       <li class="arrows">
-        <%= link_to article_path(vote: "down"), method: :patch, class: "btn btn-default" do %>
+        <%= link_to article_comment_vote_path(@article, f, vote: "down"), method: :patch, class: "btn btn-default" do %>
           <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
         <% end %>
 
