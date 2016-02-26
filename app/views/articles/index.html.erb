@@ -6,15 +6,9 @@
           <h4 class="panel-title index-page" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= article.id %>" aria-expanded="false" aria-controls="collapse<%= article.id %>">
             <ul>
               <li class="arrows">
-                <% if current_account.voted_up_on? article %>
-                  <%= link_to article_vote_path(article, vote: "up"), method: :patch, class: "btn btn-warning", aria_label: "Left Align" do %>
-                      <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
-                  <% end %>
-                <% else %>
                   <%= link_to article_vote_path(article, vote: "up"), method: :patch, class: "btn btn-default", aria_label: "Left Align" do %>
                       <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
                   <% end %>
-                <% end %>
               </li>
               <li class="upvote-button upvote-counter arrows">
                 <p><%= article.total_votes_article %></p>
@@ -24,15 +18,9 @@
                   <%= article.title %>
               </li>
               <li class="arrows">
-                <% if current_account.voted_down_on? article %>
-                  <%= link_to article_vote_path(article, vote: "down"), method: :patch, class: "btn btn-warning", aria_label: "Left Align" do %>
-                      <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
-                  <% end %>
-                <% else %>
                   <%= link_to article_vote_path(article, vote: "down"), method: :patch, class: "btn btn-default", aria_label: "Left Align" do %>
                       <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
                   <% end %>
-                <% end %>
               </li>
             </ul>
             &nbsp;&nbsp;
