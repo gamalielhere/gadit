@@ -1,6 +1,7 @@
 ![img](http://i.imgur.com/KuSA00C.png)
 #GA-dit app 
 **author: Gamaliel Padillo**
+[GA-dit](https://warm-coast-27823.herokuapp.com/)
 &nbsp;  
 &nbsp;  
 ###Description:
@@ -29,7 +30,11 @@ My design approach is to make a reddit look alike app but more user friendly loo
 ![WHOLE WIREFRAME](http://i.imgur.com/XnixWp0.jpg)  
 &nbsp;  
 &nbsp;  
+#ERD:  
+![page](http://i.imgur.com/HTHVX7X.jpg)
 
+I have a one to many relationship for Account and Article, Account and Comment, and Article and Comment.  
+&nbsp;  
 ##How it end up:
 ![page](http://i.imgur.com/bUUJIGG.png)  
 &nbsp;  
@@ -49,8 +54,3 @@ My design approach is to make a reddit look alike app but more user friendly loo
 ![page](https://i.imgur.com/Whu2S7M.png)![page](https://i.imgur.com/stimdwH.png)  
 &nbsp;  
 &nbsp;  
-
-#ERD:  
-![page](http://i.imgur.com/HTHVX7X.jpg)
-
-I have a one to many relationship for Account and Article, Account and Comment, and Article and Comment.
