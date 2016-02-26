@@ -9,6 +9,7 @@ App that will resemble either facebook or reddit depending on what path or patte
 
 ###Technology
 * Ruby on Rails
+* closure_tree and acts_as_votable gem
 * HTML/CSS
 * Bootstrap or Materialize CSS framework
 * Javascript or jQuery
@@ -20,5 +21,6 @@ App that will resemble either facebook or reddit depending on what path or patte
 [My Trello Board](https://trello.com/b/Z0UOgIQD/ga-dit)  
 &nbsp;  
 
-#PLEASE NOTE THAT THIS IS NOT A FINISHED APP AS OF TODAY. THIS WILL BE UPDATED THROUGHOUT THE WEEK.
+#Wireframes:
+
 
