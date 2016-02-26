@@ -23,6 +23,12 @@ class AccountsController < ApplicationController
     end
   end
 
+  def destroy
+    @account = Account.find(params[:id])
+    @account.destroy
+    redirect_to root_path
+  end
+
 private
   def acc_params
     params.require(:account).permit(:username, :email, :password, :password_confirmation)

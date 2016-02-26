@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
 
   #New accounts
-  resources :accounts, only: [:new, :create, :index, :show]
+  resources :accounts, only: [:new, :create, :index, :show, :destroy]
   resources :articles, only: [:new, :create, :index] do
     resources :comments, shallow: true
     get '/comments/new/(:parent_id)', to: 'comments#new', as: :new_comment

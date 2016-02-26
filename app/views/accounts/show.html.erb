@@ -1,11 +1,15 @@
 <div class="center-content">
   <img src="../../../aa.png" alt="LOGO" style="height:200px;">
-  <h1><%= @account.username %></h1>
+  <h1><%= @account.username %>
+    <% if current_account == @account %>
+     | <%= link_to 'DELETE', @account, method: :delete, data: {confirm: 'Are you sure you want to delete user?'} %>
+    <% end %>
+  </h1>
   <div class="panel panel-default">
   <div class="panel-heading">Activities: </div>
   <div class="panel-body">
     <% @articles.each do |article| %>
-      <p><%= article.title %> by <%= article.account.username %> about <%= time_ago_in_words(article.created_at) %> ago</p>
+      <p><%= article.title %> by <%= article.account.username %> about <%= time_ago_in_words(article.created_at) %> ago. </p>
     <% end %>
     <% @comments.each do |f| %>
       <p><%= f.content %> by <%= f.account.username %></p>
