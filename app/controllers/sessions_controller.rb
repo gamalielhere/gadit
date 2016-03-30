@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  after_action :allow_iframe, only: :embed
+
   def new
 
   end
@@ -21,7 +21,5 @@ class SessionsController < ApplicationController
   end
 
 private
-  def allow_iframe
-    response.headers.except! 'X-Frame-Options'
-  end
+
 end

@@ -1,8 +1,4 @@
 class AccountsController < ApplicationController
-  after_action :allow_iframe, only: :embed
-
-  def embed
-  end
 
   def index
   end
@@ -35,11 +31,8 @@ class AccountsController < ApplicationController
   end
 
 private
+
   def acc_params
     params.require(:account).permit(:username, :email, :password, :password_confirmation)
-  end
-
-  def allow_iframe
-    response.headers.except! 'X-Frame-Options'
   end
 end

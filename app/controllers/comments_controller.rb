@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :authorize
-  after_action :allow_iframe, only: :embed
+
+
   def index
     @comments = @comment = Comment.find(params[:id])
   end
@@ -61,9 +62,7 @@ class CommentsController < ApplicationController
   end
 
 private
-  def allow_iframe
-    response.headers.except! 'X-Frame-Options'
-  end
+
   def comment_params
     params.require(:comment).permit(:content)
   end
