@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  after_action :allow_iframe, only: :embed
   def new
 
   end
@@ -17,5 +18,10 @@ class SessionsController < ApplicationController
   def destroy
     session[:account_id] = nil
     redirect_to root_path, notice: 'Logged out!'
+  end
+
+private
+  def allow_iframe
+    response.headers.except! 'X-Frame-Options'
   end
 end

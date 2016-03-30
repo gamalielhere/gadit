@@ -1,5 +1,9 @@
 class ArticlesController < ApplicationController
   before_action :authorize, except: [:index, :show]
+  after_action :allow_iframe, only: :embed
+
+  def embed
+  end
 
   def index
     @articles = Article.all.order('created_at DESC')
@@ -69,7 +73,9 @@ class ArticlesController < ApplicationController
 
 
 private
-
+  def allow_iframe
+    response.headers.except! 'X-Frame-Options'
+  end
   def article_params
     params.require(:article).permit(:title,:description)
   end
