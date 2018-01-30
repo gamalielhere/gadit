@@ -1,5 +1,6 @@
 ![img](http://i.imgur.com/KuSA00C.png)
-#GA-dit app 
+#GA-dit app
+#v1.2.0
 **author: Gamaliel Padillo**
 [GA-dit](https://warm-coast-27823.herokuapp.com/)
 &nbsp;  
@@ -24,7 +25,7 @@ My design approach is to make a reddit look alike app but more user friendly loo
 [My Trello Board](https://trello.com/b/Z0UOgIQD/ga-dit)  
 &nbsp;  
 
-#Wireframes: 
+#Wireframes:
 &nbsp;  
 ## Whole project wireframe  
 ![WHOLE WIREFRAME](http://i.imgur.com/XnixWp0.jpg)  
