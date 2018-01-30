@@ -9,10 +9,15 @@
   <div class="panel-heading">Activities: </div>
   <div class="panel-body">
     <% @articles.each do |article| %>
-      <p><%= article.title %> by <%= article.account.username %> about <%= time_ago_in_words(article.created_at) %> ago. </p>
+      <!-- <%= link_to article.title, article_path(article.id) %> -->
+      <%= link_to article_path(article.id) do %>
+        <p><%= article.title %> by <%= article.account.username %> about <%= time_ago_in_words(article.created_at) %> ago. </p>
+      <% end %>
     <% end %>
-    <% @comments.each do |f| %>
-      <p><%= f.content %> by <%= f.account.username %></p>
+    <% @comments.each do |comment| %>
+      <%= link_to article_path(comment.article.id) do %>
+        <p><%= comment.content %> by <%= comment.account.username %></p>
+      <% end %>
     <% end %>
   </div>
 </div>
