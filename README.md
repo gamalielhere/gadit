@@ -1,6 +1,6 @@
 ![img](http://i.imgur.com/KuSA00C.png)
 # GA-dit app
-# v1.4.0
+# v1.5.0
 author: Gamaliel Padillo
 [GA-dit](https://warm-coast-27823.herokuapp.com/)
 &nbsp;  
