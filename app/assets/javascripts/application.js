@@ -18,9 +18,9 @@
 //= require best_in_place
 //= require_tree .
 
-$(function() {
+$(document).ready(function() {
+  $(".best_in_place").best_in_place();
   $(".stop-propagate").on("click", function(evt) {
     evt.stopPropagation();
-    console.log("HALT!");
   });
-});
+})

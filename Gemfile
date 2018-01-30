@@ -32,7 +32,7 @@ gem 'pry-rails', :group => :development
 
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'closure_tree'
-gem 'best_in_place', github: 'bernat/best_in_place'
+gem 'best_in_place', '~> 3.0.1'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -45,4 +45,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
