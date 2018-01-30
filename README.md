@@ -1,7 +1,7 @@
 ![img](http://i.imgur.com/KuSA00C.png)
 # GA-dit app
 # v1.4.0
-** author: Gamaliel Padillo **
+author: Gamaliel Padillo
 [GA-dit](https://warm-coast-27823.herokuapp.com/)
 &nbsp;  
 &nbsp;  
@@ -9,7 +9,7 @@
 App that resembles [Reddit](http://www.reddit.com), an entertainment, social news networking service, and news website where registered community members can submit content, such as text posts or direct links, making it essentially an online bulletin board system. Registered users can then vote submissions up or down to organize the posts and determine their position on the site's pages. Content entries are organized by areas of interest called "subreddits".
 &nbsp;  
 &nbsp;  
-## Design Aprroach
+## Design Approach
 My design approach is to make a reddit look alike app but more user friendly looking.
 ### Technology
 * Ruby on Rails
@@ -42,16 +42,16 @@ I have a one to many relationship for Account and Article, Account and Comment, 
 &nbsp;  
 
 ## USER SHOW PAGE:  
-** Expectation **
+Expectation
 ![page](http://i.imgur.com/coFfpoZ.jpg)  
-** Reality **
+Reality
 ![page](http://i.imgur.com/nBmMpQb.png)
 &nbsp;  
 &nbsp;  
 ## LOGIN and SIGN UP PAGE
-** Expectation **  
+Expectation  
 ![page](http://i.imgur.com/X3EnJJu.jpg?1)![page](http://i.imgur.com/BbxDcTH.jpg?1)  
-** Reality **  
+Reality  
 ![page](https://i.imgur.com/Whu2S7M.png)![page](https://i.imgur.com/stimdwH.png)  
 &nbsp;  
 &nbsp;  
